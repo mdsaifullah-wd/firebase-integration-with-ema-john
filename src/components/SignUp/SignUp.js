@@ -1,29 +1,55 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignUp = () => {
+  const [data, setData] = useState({});
+  const [error, setError] = useState('');
+  const handleOnBlur = (event) => {
+    data[event.target.name] = event.target.value;
+    setData(data);
+  };
+  const handleCreateUser = (event) => {
+    event.preventDefault();
+    console.log(data);
+    if (data.password !== data.confirmPassword) {
+      setError("Password didn't match!");
+      return;
+    }
+    setError('');
+  };
   return (
     <div className='form-container'>
       <div>
         <h2 className='form-title'>Sign Up</h2>
-        <form>
+        <form onSubmit={handleCreateUser}>
           <div className='input-group'>
             <label htmlFor='email'>Email</label>
-            <input type='email' />
+            <input onBlur={handleOnBlur} type='email' name='email' required />
           </div>
           <div className='input-group'>
             <label htmlFor='password'>Password</label>
-            <input type='password' />
+            <input
+              onBlur={handleOnBlur}
+              type='password'
+              name='password'
+              required
+            />
           </div>
           <div className='input-group'>
-            <label htmlFor='password'>Confirm Password</label>
-            <input type='password' />
+            <label htmlFor='confirm-password'>Confirm Password</label>
+            <input
+              onBlur={handleOnBlur}
+              type='password'
+              name='confirmPassword'
+              required
+            />
           </div>
+          <p className='error'>{error}</p>
           <button className='btn btn-submit' type='submit'>
             Sign Up
           </button>
         </form>
-        <p>
+        <p className='question'>
           Already have an account? <Link to={'/login'}>Login</Link>
         </p>
         <div className='divider'>

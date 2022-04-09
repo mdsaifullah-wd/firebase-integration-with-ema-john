@@ -38,6 +38,10 @@
   font-size: 21px;
   padding: 5px 10px;
 }
+.error {
+  color: #ff0000;
+  text-align: center;
+}
 .btn {
   width: 415px;
   height: 55px;
@@ -54,6 +58,9 @@
   margin-top: 24px;
   background-color: rgba(255, 153, 0, 0.3);
 }
+.btn-submit:hover {
+  background-color: rgba(255, 153, 0, 0.5);
+}
 .btn-google-signin {
   color: #2a414f;
   border: 1px solid #95a0a7;
@@ -64,7 +71,7 @@
   gap: 8px;
 }
 
-.form-container p {
+.question {
   font-weight: 400;
   font-size: 15px;
   line-height: 18px;
