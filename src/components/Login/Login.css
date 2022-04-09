@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+.form-container {
+  width: 500px;
+  height: 600px;
+  padding: 42px;
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  font-family: 'Lato';
+  margin-top: 50px;
+  color: #2a414f;
+}
+.form-title {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+
+  letter-spacing: 0.0025em;
+
+  color: #2a414f;
+  margin-bottom: 29px;
+}
+.input-group {
+  margin-bottom: 20px;
+}
+.input-group label {
+  display: block;
+  margin: 0 0 9px 10px;
+}
+.input-group input {
+  width: 415px;
+  height: 55px;
+  border: 1px solid #95a0a7;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.submit-btn {
+  background-color: rgba(255, 153, 0, 0.3);
+  width: 415px;
+  height: 55px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 25px;
+  letter-spacing: 0.0015em;
+  color: #0e161a;
+  cursor: pointer;
+  margin-top: 24px;
+}
+
+.form-container p {
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 0.0025em;
+  color: #2a414f;
+  text-align: center;
+  margin-top: 9px;
+}
+.form-container a {
+  color: #ff9900;
+  text-decoration: none;
+}
