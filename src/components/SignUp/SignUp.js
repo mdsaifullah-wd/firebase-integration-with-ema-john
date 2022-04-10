@@ -1,22 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 const SignUp = () => {
   const [data, setData] = useState({});
-  const [error, setError] = useState('');
+  const [err, setErr] = useState('');
+  const navigate = useNavigate();
+  const [createUserWithEmailAndPassword, user, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  user && navigate('/shop');
+  // console.log(error);
+  // error?.message
+  //   ? setErr(
+  //       error.message.includes('email-already-in-use') &&
+  //         'You have already created an account with this email'
+  //     )
+  //   : setErr('');
   const handleOnBlur = (event) => {
     data[event.target.name] = event.target.value;
     setData(data);
   };
   const handleCreateUser = (event) => {
     event.preventDefault();
-    console.log(data);
     if (data.password !== data.confirmPassword) {
-      setError("Password didn't match!");
+      setErr("Password didn't match!");
       return;
     }
-    setError('');
+    setErr('');
+    createUserWithEmailAndPassword(data.email, data.password);
   };
+
   return (
     <div className='form-container'>
       <div>
@@ -44,7 +58,7 @@ const SignUp = () => {
               required
             />
           </div>
-          <p className='error'>{error}</p>
+          <p className='error'>{err}</p>
           <button className='btn btn-submit' type='submit'>
             Sign Up
           </button>
